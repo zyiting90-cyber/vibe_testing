@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-ticker {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll 40s linear infinite;
+  }
+  .animate-ticker:hover {
+    animation-play-state: paused;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .tv-btn-gradient {
+    background: linear-gradient(135deg, #1976d2 0%, #7b1fa2 100%);
+    transition: opacity 0.2s ease, transform 0.15s ease;
+  }
+  .tv-btn-gradient:hover {
+    opacity: 0.92;
+  }
+  .tv-btn-gradient:active {
+    transform: scale(0.98);
+  }
+
+  @keyframes flashGreen {
+    0% { background-color: rgba(8, 153, 129, 0.28); }
+    100% { background-color: transparent; }
+  }
+  @keyframes flashRed {
+    0% { background-color: rgba(242, 54, 69, 0.28); }
+    100% { background-color: transparent; }
+  }
+  .flash-green {
+    animation: flashGreen 1.2s ease-out;
+  }
+  .flash-red {
+    animation: flashRed 1.2s ease-out;
+  }
+}
+
+body {
+  background-color: #131722;
+  color: #d1d4dc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif;
+  margin: 0;
+  padding: 0;
+}

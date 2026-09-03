@@ -1,0 +1,6 @@
+{
+  "name": "Markets Overview",
+  "description": "Real-time financial market portal tracking global indices, stocks, crypto, forex, breaking news, and economic calendar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
