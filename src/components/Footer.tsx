@@ -2,9 +2,10 @@ import React from 'react';
 
 interface FooterProps {
   onOpenLegal: (title: string) => void;
+  onOpenTalkToUs?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenTalkToUs }) => {
   return (
     <footer
       className="mt-16 border-t border-[#2a2e39] bg-[#131722] py-8 text-xs text-[#787b86]"
@@ -22,6 +23,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
         </div>
 
         <div className="flex items-center space-x-5">
+          {onOpenTalkToUs && (
+            <button
+              onClick={onOpenTalkToUs}
+              className="text-[#2962ff] hover:text-white transition cursor-pointer font-semibold"
+            >
+              Talk to Us (Forum)
+            </button>
+          )}
           <button
             onClick={() => onOpenLegal('Terms of Use')}
             className="hover:text-white transition cursor-pointer"

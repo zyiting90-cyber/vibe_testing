@@ -97,4 +97,73 @@ export interface TickerTapeItem {
   changePercent: string;
   isPositive: boolean;
   changeValue?: string;
+  flash?: 'green' | 'red';
+}
+
+export type ProSidebarTab =
+  | 'watchlist'
+  | 'alerts'
+  | 'news'
+  | 'calendar'
+  | 'orderbook'
+  | 'paperTrading'
+  | 'shortcuts';
+
+export type MainViewMode = 'standard' | 'heatmap' | 'screener' | 'talkToUs';
+
+declare global {
+  interface Window {
+    DISQUS?: {
+      reset: (options: {
+        reload: boolean;
+        config?: (this: any) => void;
+      }) => void;
+    };
+    disqus_config?: (this: any) => void;
+  }
+}
+
+export interface PaperPosition {
+  id: string;
+  symbol: string;
+  name: string;
+  side: 'BUY' | 'SELL';
+  shares: number;
+  entryPrice: number;
+  currentPrice: number;
+  stopLoss?: number;
+  takeProfit?: number;
+  openedAt: string;
+}
+
+export interface PaperAccount {
+  cash: number;
+  startingBalance: number;
+  positions: PaperPosition[];
+  realizedPnL: number;
+}
+
+export interface PriceAlert {
+  id: string;
+  symbol: string;
+  targetPrice: number;
+  condition: 'ABOVE' | 'BELOW';
+  createdAt: string;
+  triggered: boolean;
+}
+
+export interface HeatmapItem {
+  symbol: string;
+  name: string;
+  price: number;
+  changePercent: number;
+  marketCapNumber: number; // in billions
+  sector: string;
+}
+
+export interface OrderBookLevel {
+  price: number;
+  size: number;
+  total: number;
+  depthPercent: number;
 }
